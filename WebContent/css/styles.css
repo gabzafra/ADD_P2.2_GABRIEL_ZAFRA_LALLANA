@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+.alert-danger {
+    width: 600px;
+}
+
+.contact {
+    width: 500px;
+}
+
+.contact textarea {
+    min-height: 100px;
+}

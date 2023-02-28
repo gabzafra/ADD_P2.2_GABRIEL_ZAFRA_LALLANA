@@ -1,0 +1,256 @@
+28 Feb 2023 22:34:57  INFO HHH000412: Hibernate ORM core version 6.2.0.CR2
+28 Feb 2023 22:34:57  INFO HHH000406: Using bytecode reflection optimizer
+28 Feb 2023 22:34:57  WARN HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+28 Feb 2023 22:34:58  WARN HHH10001002: Using built-in connection pool (not intended for production use)
+28 Feb 2023 22:34:58  INFO HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+28 Feb 2023 22:34:58  INFO HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/p22]
+28 Feb 2023 22:34:58  INFO HHH10001001: Connection properties: {password=, user=root}
+28 Feb 2023 22:34:58  INFO HHH10001003: Autocommit mode: false
+28 Feb 2023 22:34:58  INFO HHH10001115: Connection pool size: 20 (min=1)
+28 Feb 2023 22:34:58  WARN HHH000342: Could not obtain connection to query metadata
+java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.getConnection(DriverManagerConnectionProviderImpl.java:262)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:318)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:152)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:34)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:119)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:264)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:239)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:48)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:125)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:248)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:121)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:43)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:61)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.addConnections(DriverManagerConnectionProviderImpl.java:501)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init>(DriverManagerConnectionProviderImpl.java:367)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections$Builder.build(DriverManagerConnectionProviderImpl.java:552)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:105)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:81)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:125)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:248)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:283)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:150)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:34)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:119)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:264)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:239)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:229)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:197)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:162)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:121)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:442)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:93)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:863)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:913)
+	at dam2.add.p22.HibernateManager.configureSessionFactory(HibernateManager.java:17)
+	at dam2.add.p22.HibernateManager.getSessionFactory(HibernateManager.java:24)
+	at dam2.add.p22.dao.UserDAOHibernate.createUser(UserDAOHibernate.java:14)
+	at dam2.add.p22.Main.main(Main.java:12)
+28 Feb 2023 22:34:58  INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+28 Feb 2023 22:34:58  WARN SQL Error: 1049, SQLState: 42000
+28 Feb 2023 22:34:58 ERROR Unknown database 'p22'
+28 Feb 2023 22:39:31  INFO HHH000412: Hibernate ORM core version 6.2.0.CR2
+28 Feb 2023 22:39:31  INFO HHH000406: Using bytecode reflection optimizer
+28 Feb 2023 22:39:31  WARN HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+28 Feb 2023 22:39:31  WARN HHH10001002: Using built-in connection pool (not intended for production use)
+28 Feb 2023 22:39:32  INFO HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+28 Feb 2023 22:39:32  INFO HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/p22]
+28 Feb 2023 22:39:32  INFO HHH10001001: Connection properties: {password=, user=root}
+28 Feb 2023 22:39:32  INFO HHH10001003: Autocommit mode: false
+28 Feb 2023 22:39:32  INFO HHH10001115: Connection pool size: 20 (min=1)
+28 Feb 2023 22:39:32  WARN HHH000342: Could not obtain connection to query metadata
+java.lang.IllegalStateException: Cannot get a connection as the driver manager is not properly initialized
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.getConnection(DriverManagerConnectionProviderImpl.java:262)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess.obtainConnection(JdbcEnvironmentInitiator.java:318)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:152)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:34)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:119)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:264)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:239)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216)
+	at org.hibernate.engine.jdbc.internal.JdbcServicesImpl.configure(JdbcServicesImpl.java:48)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:125)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:248)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.convertSqlException(BasicConnectionCreator.java:121)
+	at org.hibernate.engine.jdbc.connections.internal.DriverConnectionCreator.makeConnection(DriverConnectionCreator.java:43)
+	at org.hibernate.engine.jdbc.connections.internal.BasicConnectionCreator.createConnection(BasicConnectionCreator.java:61)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.addConnections(DriverManagerConnectionProviderImpl.java:501)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections.<init>(DriverManagerConnectionProviderImpl.java:367)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl$PooledConnections$Builder.build(DriverManagerConnectionProviderImpl.java:552)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.buildPool(DriverManagerConnectionProviderImpl.java:105)
+	at org.hibernate.engine.jdbc.connections.internal.DriverManagerConnectionProviderImpl.configure(DriverManagerConnectionProviderImpl.java:81)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.configureService(StandardServiceRegistryImpl.java:125)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:248)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.buildJdbcConnectionAccess(JdbcEnvironmentInitiator.java:283)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:150)
+	at org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator.initiateService(JdbcEnvironmentInitiator.java:34)
+	at org.hibernate.boot.registry.internal.StandardServiceRegistryImpl.initiateService(StandardServiceRegistryImpl.java:119)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.createService(AbstractServiceRegistryImpl.java:264)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.initializeService(AbstractServiceRegistryImpl.java:239)
+	at org.hibernate.service.internal.AbstractServiceRegistryImpl.getService(AbstractServiceRegistryImpl.java:216)
+	at org.hibernate.boot.model.relational.Database.<init>(Database.java:45)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.getDatabase(InFlightMetadataCollectorImpl.java:229)
+	at org.hibernate.boot.internal.InFlightMetadataCollectorImpl.<init>(InFlightMetadataCollectorImpl.java:197)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.complete(MetadataBuildingProcess.java:162)
+	at org.hibernate.boot.model.process.spi.MetadataBuildingProcess.build(MetadataBuildingProcess.java:121)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:442)
+	at org.hibernate.boot.internal.MetadataBuilderImpl.build(MetadataBuilderImpl.java:93)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:863)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:913)
+	at dam2.add.p22.HibernateManager.configureSessionFactory(HibernateManager.java:17)
+	at dam2.add.p22.HibernateManager.getSessionFactory(HibernateManager.java:24)
+	at dam2.add.p22.dao.UserDAOHibernate.createUser(UserDAOHibernate.java:14)
+	at dam2.add.p22.Main.main(Main.java:12)
+28 Feb 2023 22:39:32  WARN HHH000511: The 5.0.0 version for [org.hibernate.dialect.MySQL5Dialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+28 Feb 2023 22:39:32  INFO HHH000400: Using dialect: org.hibernate.dialect.MySQL5Dialect
+28 Feb 2023 22:39:32  WARN HHH90000026: MySQL5Dialect has been deprecated; use org.hibernate.dialect.MySQLDialect instead
+28 Feb 2023 22:39:32  WARN SQL Error: 1049, SQLState: 42000
+28 Feb 2023 22:39:32 ERROR Unknown database 'p22'
+28 Feb 2023 22:41:50  INFO HHH000412: Hibernate ORM core version 6.2.0.CR2
+28 Feb 2023 22:41:50  INFO HHH000406: Using bytecode reflection optimizer
+28 Feb 2023 22:41:51  WARN HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+28 Feb 2023 22:41:51  WARN HHH10001002: Using built-in connection pool (not intended for production use)
+28 Feb 2023 22:41:51  INFO HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+28 Feb 2023 22:41:51  INFO HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/p22]
+28 Feb 2023 22:41:51  INFO HHH10001001: Connection properties: {password=, user=root}
+28 Feb 2023 22:41:51  INFO HHH10001003: Autocommit mode: false
+28 Feb 2023 22:41:51  INFO HHH10001115: Connection pool size: 20 (min=1)
+28 Feb 2023 22:41:52  WARN HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+28 Feb 2023 22:41:52  INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+28 Feb 2023 22:41:52  INFO HHH000021: Bytecode provider name : bytebuddy
+28 Feb 2023 22:41:53  INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+28 Feb 2023 22:41:53  INFO HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@13bdf540] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+28 Feb 2023 22:43:29  INFO HHH000412: Hibernate ORM core version 6.2.0.CR2
+28 Feb 2023 22:43:29  INFO HHH000406: Using bytecode reflection optimizer
+28 Feb 2023 22:43:29  WARN HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+28 Feb 2023 22:43:30  WARN HHH10001002: Using built-in connection pool (not intended for production use)
+28 Feb 2023 22:43:30  INFO HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+28 Feb 2023 22:43:30  INFO HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/p22]
+28 Feb 2023 22:43:30  INFO HHH10001001: Connection properties: {password=, user=root}
+28 Feb 2023 22:43:30  INFO HHH10001003: Autocommit mode: false
+28 Feb 2023 22:43:30  INFO HHH10001115: Connection pool size: 20 (min=1)
+28 Feb 2023 22:43:30  WARN HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+28 Feb 2023 22:43:30  INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+28 Feb 2023 22:43:31  INFO HHH000021: Bytecode provider name : bytebuddy
+28 Feb 2023 22:43:32  INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+28 Feb 2023 22:43:32  INFO HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@13bdf540] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+28 Feb 2023 22:49:33  INFO HHH000412: Hibernate ORM core version 6.2.0.CR2
+28 Feb 2023 22:49:33  INFO HHH000406: Using bytecode reflection optimizer
+28 Feb 2023 22:49:33  WARN HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+28 Feb 2023 22:49:34  WARN HHH10001002: Using built-in connection pool (not intended for production use)
+28 Feb 2023 22:49:34  INFO HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+28 Feb 2023 22:49:34  INFO HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/p22]
+28 Feb 2023 22:49:34  INFO HHH10001001: Connection properties: {password=, user=root}
+28 Feb 2023 22:49:34  INFO HHH10001003: Autocommit mode: false
+28 Feb 2023 22:49:34  INFO HHH10001115: Connection pool size: 20 (min=1)
+28 Feb 2023 22:49:35  WARN HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+28 Feb 2023 22:49:35  INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+28 Feb 2023 22:49:35  INFO HHH000021: Bytecode provider name : bytebuddy
+28 Feb 2023 22:49:36  INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+28 Feb 2023 22:49:36  INFO HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1d98daa0] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+28 Feb 2023 22:50:41  INFO HHH000412: Hibernate ORM core version 6.2.0.CR2
+28 Feb 2023 22:50:41  INFO HHH000406: Using bytecode reflection optimizer
+28 Feb 2023 22:50:41  WARN HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+28 Feb 2023 22:50:42  WARN HHH10001002: Using built-in connection pool (not intended for production use)
+28 Feb 2023 22:50:42  INFO HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+28 Feb 2023 22:50:42  INFO HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/p22]
+28 Feb 2023 22:50:42  INFO HHH10001001: Connection properties: {password=, user=root}
+28 Feb 2023 22:50:42  INFO HHH10001003: Autocommit mode: false
+28 Feb 2023 22:50:42  INFO HHH10001115: Connection pool size: 20 (min=1)
+28 Feb 2023 22:50:42  WARN HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+28 Feb 2023 22:50:42  INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+28 Feb 2023 22:50:43  INFO HHH000021: Bytecode provider name : bytebuddy
+28 Feb 2023 22:50:44  INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+28 Feb 2023 22:50:44  INFO HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1d98daa0] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+28 Feb 2023 22:51:39  INFO HHH000412: Hibernate ORM core version 6.2.0.CR2
+28 Feb 2023 22:51:39  INFO HHH000406: Using bytecode reflection optimizer
+28 Feb 2023 22:51:39  WARN HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+28 Feb 2023 22:51:40  WARN HHH10001002: Using built-in connection pool (not intended for production use)
+28 Feb 2023 22:51:40  INFO HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+28 Feb 2023 22:51:40  INFO HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/p22]
+28 Feb 2023 22:51:40  INFO HHH10001001: Connection properties: {password=, user=root}
+28 Feb 2023 22:51:40  INFO HHH10001003: Autocommit mode: false
+28 Feb 2023 22:51:40  INFO HHH10001115: Connection pool size: 20 (min=1)
+28 Feb 2023 22:51:40  WARN HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+28 Feb 2023 22:51:40  INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+28 Feb 2023 22:51:41  INFO HHH000021: Bytecode provider name : bytebuddy
+28 Feb 2023 22:51:42  INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+28 Feb 2023 22:51:42  INFO HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1d98daa0] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+28 Feb 2023 22:53:32  INFO HHH000412: Hibernate ORM core version 6.2.0.CR2
+28 Feb 2023 22:53:32  INFO HHH000406: Using bytecode reflection optimizer
+28 Feb 2023 22:53:32  WARN HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+28 Feb 2023 22:53:32  WARN HHH10001002: Using built-in connection pool (not intended for production use)
+28 Feb 2023 22:53:32  INFO HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+28 Feb 2023 22:53:32  INFO HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/p22]
+28 Feb 2023 22:53:32  INFO HHH10001001: Connection properties: {password=, user=root}
+28 Feb 2023 22:53:32  INFO HHH10001003: Autocommit mode: false
+28 Feb 2023 22:53:32  INFO HHH10001115: Connection pool size: 20 (min=1)
+28 Feb 2023 22:53:33  WARN HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+28 Feb 2023 22:53:33  INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+28 Feb 2023 22:53:33  INFO HHH000021: Bytecode provider name : bytebuddy
+28 Feb 2023 22:53:34  INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+28 Feb 2023 22:53:34  INFO HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1d98daa0] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+28 Feb 2023 22:55:11  INFO HHH000412: Hibernate ORM core version 6.2.0.CR2
+28 Feb 2023 22:55:11  INFO HHH000406: Using bytecode reflection optimizer
+28 Feb 2023 22:55:11  WARN HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+28 Feb 2023 22:55:11  WARN HHH10001002: Using built-in connection pool (not intended for production use)
+28 Feb 2023 22:55:11  INFO HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+28 Feb 2023 22:55:11  INFO HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/p22]
+28 Feb 2023 22:55:11  INFO HHH10001001: Connection properties: {password=, user=root}
+28 Feb 2023 22:55:11  INFO HHH10001003: Autocommit mode: false
+28 Feb 2023 22:55:11  INFO HHH10001115: Connection pool size: 20 (min=1)
+28 Feb 2023 22:55:12  WARN HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+28 Feb 2023 22:55:12  INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+28 Feb 2023 22:55:12  INFO HHH000021: Bytecode provider name : bytebuddy
+28 Feb 2023 22:55:13  INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+28 Feb 2023 22:55:13  INFO HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1d98daa0] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+28 Feb 2023 23:04:14  INFO HHH000412: Hibernate ORM core version 6.2.0.CR2
+28 Feb 2023 23:04:14  INFO HHH000406: Using bytecode reflection optimizer
+28 Feb 2023 23:04:14  WARN HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+28 Feb 2023 23:04:15  WARN HHH10001002: Using built-in connection pool (not intended for production use)
+28 Feb 2023 23:04:15  INFO HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+28 Feb 2023 23:04:15  INFO HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/p22]
+28 Feb 2023 23:04:15  INFO HHH10001001: Connection properties: {password=, user=root}
+28 Feb 2023 23:04:15  INFO HHH10001003: Autocommit mode: false
+28 Feb 2023 23:04:15  INFO HHH10001115: Connection pool size: 20 (min=1)
+28 Feb 2023 23:04:15  WARN HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+28 Feb 2023 23:04:15  INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+28 Feb 2023 23:04:15  INFO HHH000021: Bytecode provider name : bytebuddy
+28 Feb 2023 23:04:17  INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+28 Feb 2023 23:04:17  INFO HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1d98daa0] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+28 Feb 2023 23:04:56  INFO HHH000412: Hibernate ORM core version 6.2.0.CR2
+28 Feb 2023 23:04:56  INFO HHH000406: Using bytecode reflection optimizer
+28 Feb 2023 23:04:56  WARN HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+28 Feb 2023 23:04:56  WARN HHH10001002: Using built-in connection pool (not intended for production use)
+28 Feb 2023 23:04:56  INFO HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+28 Feb 2023 23:04:56  INFO HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/p22]
+28 Feb 2023 23:04:56  INFO HHH10001001: Connection properties: {password=, user=root}
+28 Feb 2023 23:04:56  INFO HHH10001003: Autocommit mode: false
+28 Feb 2023 23:04:56  INFO HHH10001115: Connection pool size: 20 (min=1)
+28 Feb 2023 23:04:57  WARN HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+28 Feb 2023 23:04:57  INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+28 Feb 2023 23:04:57  INFO HHH000021: Bytecode provider name : bytebuddy
+28 Feb 2023 23:04:58  INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+28 Feb 2023 23:04:58  INFO HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1d98daa0] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+28 Feb 2023 23:07:06  INFO HHH000412: Hibernate ORM core version 6.2.0.CR2
+28 Feb 2023 23:07:06  INFO HHH000406: Using bytecode reflection optimizer
+28 Feb 2023 23:07:06  WARN HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+28 Feb 2023 23:07:07  WARN HHH10001002: Using built-in connection pool (not intended for production use)
+28 Feb 2023 23:07:07  INFO HHH10001005: Loaded JDBC driver class: com.mysql.cj.jdbc.Driver
+28 Feb 2023 23:07:07  INFO HHH10001012: Connecting with JDBC URL [jdbc:mysql://localhost:3306/p22]
+28 Feb 2023 23:07:07  INFO HHH10001001: Connection properties: {password=, user=root}
+28 Feb 2023 23:07:07  INFO HHH10001003: Autocommit mode: false
+28 Feb 2023 23:07:07  INFO HHH10001115: Connection pool size: 20 (min=1)
+28 Feb 2023 23:07:07  WARN HHH000511: The 5.5.0 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 5.7.0. Check the community dialects project for available legacy versions.
+28 Feb 2023 23:07:07  INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+28 Feb 2023 23:07:07  INFO HHH000021: Bytecode provider name : bytebuddy
+28 Feb 2023 23:07:09  INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+28 Feb 2023 23:07:09  INFO HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1d98daa0] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.

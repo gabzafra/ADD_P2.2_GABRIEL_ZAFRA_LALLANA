@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="ADD_P2.2_GABRIEL_ZAFRA_LALLANA-0.0.1-SNAPSHOT">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/dam2/add/p22/i18n"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/dam2/add/p22/properties"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <property name="context-root" value="ADD_P2.2_GABRIEL_ZAFRA_LALLANA"/>
+        <property name="java-output-path" value="/ADD_P2.2_GABRIEL_ZAFRA_LALLANA/build/classes"/>
+    </wb-module>
+</project-modules>
