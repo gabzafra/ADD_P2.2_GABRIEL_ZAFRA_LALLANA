@@ -2,18 +2,18 @@ package dam2.add.p22.model;
 
 public class GeoItem {
   private String id;
-  private String name;
+  private String nm;
 
   public GeoItem(String id, String name) {
     this.id = id;
-    this.name = name;
+    this.nm = name;
   }
 
   public String getId() {
     return id;
   }
 
-  public String getName() {
-    return name;
+  public String getNm() {
+    return nm;
   }
 }

@@ -58,6 +58,7 @@
 				</c:if>
 			</div>
 			<jsp:include page="components/footer.jsp" />
+			<script src="js/clients.js"></script>
 		</body>
 
 		</html>

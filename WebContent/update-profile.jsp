@@ -46,17 +46,13 @@
 						value="${requestScope.user.phone}"> <label for="phone"><%=rb.getString("phone")%></label>
 				</div>
 				<div class="form-floating mb-3">
-					<select name="provincia" class="custom-select">
-						<option selected><%=rb.getString("province")%></option>
-						<option value="1">One</option>
-						<option value="2">Two</option>
-						<option value="3">Three</option>
-					</select><label for="provincia"></label>
-					<select name="municipio" class="custom-select">
+				    <label for="provincia"><%=rb.getString("province")%></label>
+					<select name="provincia" class="custom-select" id="select-provincia"></select>
+					<select name="municipio" class="custom-select" id="select-municipio">
 						<option selected><%=rb.getString("municipality")%></option>
-						<option value="1">One</option>
-						<option value="2">Two</option>
-						<option value="3">Three</option>
+						<option value="01">One</option>
+						<option value="02">Two</option>
+						<option value="93">Three</option>
 					</select>
 				</div>
 				<button type="submit" class="btn btn-primary"><%=rb.getString("continue")%></button>
@@ -72,6 +68,7 @@
 		</c:if>
 	</div>
 	<jsp:include page="components/footer.jsp" />
+	<script src="js/form_select.js"></script>
 </body>
 
 </html>

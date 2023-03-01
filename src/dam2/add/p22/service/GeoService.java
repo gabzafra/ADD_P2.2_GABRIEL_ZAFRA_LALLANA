@@ -11,7 +11,19 @@ import dam2.add.p22.config.ConfigService;
 import dam2.add.p22.model.GeoItem;
 
 public class GeoService {
+  private static GeoService instance;
   private static ConfigService conf = ConfigService.getInstance();
+
+  private GeoService() {
+
+  }
+
+  public static GeoService getInstance() {
+    if (instance == null) {
+      instance = new GeoService();
+    }
+    return instance;
+  }
 
   public GeoItem[] getProvincias() {
     GeoItem[] provinciasArr;
@@ -23,7 +35,7 @@ public class GeoService {
       return new GeoItem[0];
     }
 
-    Arrays.sort(provinciasArr, Comparator.comparing(GeoItem::getName));
+    Arrays.sort(provinciasArr, Comparator.comparing(GeoItem::getNm));
 
     return provinciasArr;
   }
@@ -40,7 +52,7 @@ public class GeoService {
 
     return Arrays.stream(municipiosArr)
         .filter(municipio -> municipio.getId().startsWith(provincia.getId()))
-        .sorted((m1, m2) -> m1.getName().compareTo(m2.getName())).toArray(GeoItem[]::new);
+        .sorted((m1, m2) -> m1.getNm().compareTo(m2.getNm())).toArray(GeoItem[]::new);
   }
 
   private static String leerUrl(String sUrl) throws Exception {
