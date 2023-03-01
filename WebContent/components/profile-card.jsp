@@ -18,6 +18,8 @@
             <h1>${requestScope.detail.name} ${requestScope.detail.surnames}</h1>
             <p><span><%=rb.getString("email")%>: </span><a href="mailto:${requestScope.detail.email}">${requestScope.detail.email}</a></p>
             <p><span><%=rb.getString("phone")%>: </span>${requestScope.detail.phone}</p>
+            <p><span><%=rb.getString("province")%>: </span>${requestScope.detail.province}</p>
+            <p><span><%=rb.getString("municipality")%>: </span>${requestScope.detail.town}</p>
         </article>
         <c:if test="${!empty requestScope.error}">
             <jsp:include page="/components/error.jsp">

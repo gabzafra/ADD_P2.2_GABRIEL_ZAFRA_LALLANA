@@ -28,6 +28,9 @@ public class Register extends HttpServlet {
     user.setEmail(request.getParameter("mail"));
     user.setPhone(request.getParameter("phone"));
     user.setPassword(request.getParameter("pass1"));
+    user.setProvince(request.getParameter("provincia"));
+    String municipio = request.getParameter("municipio");
+    user.setTown(municipio == null ? "" : municipio);
     String pass2 = request.getParameter("pass2");
 
     String lang = (String) request.getSession().getAttribute("idioma");

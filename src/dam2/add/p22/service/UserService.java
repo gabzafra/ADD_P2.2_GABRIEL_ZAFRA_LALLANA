@@ -144,8 +144,10 @@ public class UserService {
   }
 
   public static boolean hasEmptyFields(User user) {
+    System.out.println(user.toString());
     return user.getName().equals("") || user.getSurnames().equals("") || user.getEmail().equals("")
-        || user.getPhone().equals("") || user.getPassword().equals("");
+        || user.getPhone().equals("") || user.getPassword().equals("")
+        || user.getProvince().equals("") || user.getTown().equals("");
   }
 
   public String validateLogin(String email, String pass, String lang) {
@@ -203,7 +205,8 @@ public class UserService {
     String error = "";
     User newUser = null;
     if (userData.getName().equals("") || userData.getSurnames().equals("")
-        || userData.getEmail().equals("") || userData.getPhone().equals("")) {
+        || userData.getEmail().equals("") || userData.getPhone().equals("")
+        || userData.getProvince().equals("") || userData.getTown().equals("")) {
       error = "err_no_empty_fields";
     } else if (!isValidEmail(userData.getEmail())) {
       error = "err_invalid_mail";
@@ -220,6 +223,8 @@ public class UserService {
           oldUser.setEmail(userData.getEmail());
           oldUser.setSurnames(userData.getSurnames());
           oldUser.setPhone(userData.getPhone());
+          oldUser.setProvince(userData.getProvince());
+          oldUser.setTown(userData.getTown());
 
           newUser = updateUser(oldUser);
           if (newUser.getId() <= 0) {

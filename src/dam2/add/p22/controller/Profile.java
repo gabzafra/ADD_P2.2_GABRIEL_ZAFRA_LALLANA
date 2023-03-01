@@ -70,6 +70,9 @@ public class Profile extends HttpServlet {
         user.setSurnames(request.getParameter("surnames"));
         user.setEmail(request.getParameter("mail"));
         user.setPhone(request.getParameter("phone"));
+        user.setProvince(request.getParameter("provincia"));
+        String municipio = request.getParameter("municipio");
+        user.setTown(municipio == null ? "" : municipio);
 
         String error = userSrv.validateUpdateFields(user, idAuth);
 

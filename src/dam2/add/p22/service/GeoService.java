@@ -76,7 +76,6 @@ public class GeoService {
       }
 
       output = sb.toString();
-      System.out.println(output);
 
       conn.disconnect();
     } catch (Exception e) {

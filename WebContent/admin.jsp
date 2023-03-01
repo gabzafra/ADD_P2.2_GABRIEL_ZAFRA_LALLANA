@@ -28,7 +28,7 @@
 	                                <input type="radio" class="btn-check" name="storemode" id="r11" value="mem" ${requestScope.storemode == 'mem' ? 'checked' : ''}>
 	                                <label class="btn btn-outline-secondary" for="r11"><%=rb.getString("memory")%></label>
 	                                <input type="radio" class="btn-check" name="storemode" id="r12" value="db" ${requestScope.storemode == 'db' ? 'checked' : ''}>
-	                                <label class="btn btn-outline-secondary" for="r13"><%=rb.getString("jdbc")%></label>
+	                                <label class="btn btn-outline-secondary" for="r12"><%=rb.getString("jdbc")%></label>
 	                                <input type="radio" class="btn-check" name="storemode" id="r13" value="hb" ${requestScope.storemode == 'hb' ? 'checked' : ''}>
                                     <label class="btn btn-outline-secondary" for="r13"><%=rb.getString("hibernate")%></label>
 	                            </div>

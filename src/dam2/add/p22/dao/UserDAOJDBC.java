@@ -38,13 +38,15 @@ public class UserDAOJDBC implements UserDAO {
 
       while (rs.next()) {
         result.setId(rs.getInt(1));
-        result.setName(rs.getString(2));
-        result.setSurnames(rs.getString(3));
-        result.setEmail(rs.getString(4));
-        result.setPhone(rs.getString(5));
+        result.setName(rs.getString(5));
+        result.setSurnames(rs.getString(9));
+        result.setEmail(rs.getString(2));
+        result.setPhone(rs.getString(7));
         result.setPassword(rs.getString(6));
-        result.setAdmin(rs.getBoolean(7));
-        result.setLang(rs.getString(8));
+        result.setAdmin(rs.getBoolean(3));
+        result.setLang(rs.getString(4));
+        result.setProvince(rs.getString(8));
+        result.setTown(rs.getString(10));
       }
       rs.close();
       ps.close();
@@ -59,7 +61,7 @@ public class UserDAOJDBC implements UserDAO {
     int rows = 0;
 
     String query =
-        "INSERT INTO users (name, surnames, mail, phone, pass, role, lang) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        "INSERT INTO users (name, surnames, mail, phone, pass, role, lang, province, town) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
     try {
       PreparedStatement ps = db.prepareStatement(query);
@@ -70,6 +72,8 @@ public class UserDAOJDBC implements UserDAO {
       ps.setString(5, user.getPassword());
       ps.setBoolean(6, user.isAdmin());
       ps.setString(7, user.getLang());
+      ps.setString(8, user.getProvince());
+      ps.setString(9, user.getTown());
 
       rows = ps.executeUpdate();
 
@@ -100,13 +104,15 @@ public class UserDAOJDBC implements UserDAO {
       while (rs.next()) {
         User user = new User();
         user.setId(rs.getInt(1));
-        user.setName(rs.getString(2));
-        user.setSurnames(rs.getString(3));
-        user.setEmail(rs.getString(4));
-        user.setPhone(rs.getString(5));
+        user.setName(rs.getString(5));
+        user.setSurnames(rs.getString(9));
+        user.setEmail(rs.getString(2));
+        user.setPhone(rs.getString(7));
         user.setPassword(rs.getString(6));
-        user.setAdmin(rs.getBoolean(7));
-        user.setLang(rs.getString(8));
+        user.setAdmin(rs.getBoolean(3));
+        user.setLang(rs.getString(4));
+        user.setProvince(rs.getString(8));
+        user.setTown(rs.getString(10));
 
         result.add(user);
       }
@@ -132,13 +138,16 @@ public class UserDAOJDBC implements UserDAO {
 
       while (rs.next()) {
         result.setId(rs.getInt(1));
-        result.setName(rs.getString(2));
-        result.setSurnames(rs.getString(3));
-        result.setEmail(rs.getString(4));
-        result.setPhone(rs.getString(5));
+        result.setName(rs.getString(5));
+        result.setSurnames(rs.getString(9));
+        result.setEmail(rs.getString(2));
+        result.setPhone(rs.getString(7));
         result.setPassword(rs.getString(6));
-        result.setAdmin(rs.getBoolean(7));
-        result.setLang(rs.getString(8));
+        result.setAdmin(rs.getBoolean(3));
+        result.setLang(rs.getString(4));
+        result.setProvince(rs.getString(8));
+        result.setTown(rs.getString(10));
+
       }
       rs.close();
       ps.close();
@@ -172,7 +181,7 @@ public class UserDAOJDBC implements UserDAO {
     int rows = 0;
 
     String query =
-        "UPDATE users SET name=?, surnames=?, mail=?, phone=?, pass=?, role=?, lang=? WHERE id=?";
+        "UPDATE users SET name=?, surnames=?, mail=?, phone=?, pass=?, role=?, lang=?, province=?, town=? WHERE id=?";
 
     try {
       PreparedStatement ps = db.prepareStatement(query);
@@ -183,7 +192,9 @@ public class UserDAOJDBC implements UserDAO {
       ps.setString(5, user.getPassword());
       ps.setBoolean(6, user.isAdmin());
       ps.setString(7, user.getLang());
-      ps.setInt(8, user.getId());
+      ps.setString(8, user.getProvince());
+      ps.setString(9, user.getTown());
+      ps.setInt(10, user.getId());
 
       rows = ps.executeUpdate();
 

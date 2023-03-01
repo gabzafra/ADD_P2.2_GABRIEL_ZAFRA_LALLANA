@@ -254,3 +254,357 @@ java.lang.IllegalStateException: Cannot get a connection as the driver manager i
 28 Feb 2023 23:07:07  INFO HHH000021: Bytecode provider name : bytebuddy
 28 Feb 2023 23:07:09  INFO HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
 28 Feb 2023 23:07:09  INFO HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@1d98daa0] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+01 Mar 2023 17:16:27  INFO HHH000412: Hibernate Core {5.3.1.Final}
+01 Mar 2023 17:16:27  INFO HHH000206: hibernate.properties not found
+01 Mar 2023 17:16:27  WARN HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+01 Mar 2023 17:16:28  INFO HCANN000001: Hibernate Commons Annotations {5.0.3.Final}
+01 Mar 2023 17:16:28  WARN HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+01 Mar 2023 17:16:28  INFO HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/p22]
+01 Mar 2023 17:16:28  INFO HHH10001001: Connection properties: {user=root, password=}
+01 Mar 2023 17:16:28  INFO HHH10001003: Autocommit mode: false
+01 Mar 2023 17:16:28  INFO HHH000115: Hibernate connection pool size: 20 (min=1)
+01 Mar 2023 17:16:28  INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+01 Mar 2023 17:16:29  INFO HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5298dead] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+01 Mar 2023 17:16:29  WARN GenerationTarget encountered exception accepting command : Error executing DDL "create table users (id integer not null auto_increment, mail varchar(255) not null, role bit not null, lang varchar(50) not null, name varchar(50) not null, pass varchar(255) not null, phone varchar(50) not null, province varchar(10) not null, surnames varchar(255) not null, town varchar(10) not null, primary key (id)) type=MyISAM" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create table users (id integer not null auto_increment, mail varchar(255) not null, role bit not null, lang varchar(50) not null, name varchar(50) not null, pass varchar(255) not null, phone varchar(50) not null, province varchar(10) not null, surnames varchar(255) not null, town varchar(10) not null, primary key (id)) type=MyISAM" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:559)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:504)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.createTable(AbstractSchemaMigrator.java:277)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:71)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:207)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:114)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:183)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:310)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:467)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:708)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:724)
+	at dam2.add.p22.HibernateManager.configureSessionFactory(HibernateManager.java:14)
+	at dam2.add.p22.HibernateManager.getSessionFactory(HibernateManager.java:20)
+	at dam2.add.p22.dao.UserDAOHibernate.<init>(UserDAOHibernate.java:17)
+	at dam2.add.p22.dao.UserDAOHibernate.getInstance(UserDAOHibernate.java:22)
+	at Main.main(Main.java:7)
+Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'type=MyISAM' at line 1
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 17 more
+01 Mar 2023 17:16:30  WARN SQL Error: 1146, SQLState: 42S02
+01 Mar 2023 17:16:30 ERROR Table 'p22.users' doesn't exist
+01 Mar 2023 17:18:41  INFO HHH000412: Hibernate Core {5.3.1.Final}
+01 Mar 2023 17:18:41  INFO HHH000206: hibernate.properties not found
+01 Mar 2023 17:18:41  WARN HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+01 Mar 2023 17:18:42  INFO HCANN000001: Hibernate Commons Annotations {5.0.3.Final}
+01 Mar 2023 17:18:42  WARN HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+01 Mar 2023 17:18:42  INFO HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/p22]
+01 Mar 2023 17:18:42  INFO HHH10001001: Connection properties: {user=root, password=}
+01 Mar 2023 17:18:42  INFO HHH10001003: Autocommit mode: false
+01 Mar 2023 17:18:42  INFO HHH000115: Hibernate connection pool size: 20 (min=1)
+01 Mar 2023 17:18:42  INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+01 Mar 2023 17:18:43  INFO HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5298dead] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+01 Mar 2023 17:18:43  WARN GenerationTarget encountered exception accepting command : Error executing DDL "create table users (id integer not null auto_increment, mail varchar(255) not null, role bit not null, lang varchar(50) not null, name varchar(50) not null, pass varchar(255) not null, phone varchar(50) not null, province varchar(10) not null, surnames varchar(255) not null, town varchar(10) not null, primary key (id)) type=MyISAM" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create table users (id integer not null auto_increment, mail varchar(255) not null, role bit not null, lang varchar(50) not null, name varchar(50) not null, pass varchar(255) not null, phone varchar(50) not null, province varchar(10) not null, surnames varchar(255) not null, town varchar(10) not null, primary key (id)) type=MyISAM" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:559)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:504)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.createTable(AbstractSchemaMigrator.java:277)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:71)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:207)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:114)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:183)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:310)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:467)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:708)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:724)
+	at dam2.add.p22.HibernateManager.configureSessionFactory(HibernateManager.java:14)
+	at dam2.add.p22.HibernateManager.getSessionFactory(HibernateManager.java:20)
+	at dam2.add.p22.dao.UserDAOHibernate.<init>(UserDAOHibernate.java:17)
+	at dam2.add.p22.dao.UserDAOHibernate.getInstance(UserDAOHibernate.java:22)
+	at dam2.add.p22.Main.main(Main.java:8)
+Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'type=MyISAM' at line 1
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 17 more
+01 Mar 2023 17:18:44  WARN SQL Error: 1146, SQLState: 42S02
+01 Mar 2023 17:18:44 ERROR Table 'p22.users' doesn't exist
+01 Mar 2023 17:20:01  INFO HHH000412: Hibernate Core {5.3.1.Final}
+01 Mar 2023 17:20:01  INFO HHH000206: hibernate.properties not found
+01 Mar 2023 17:20:01  WARN HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+01 Mar 2023 17:20:01  INFO HCANN000001: Hibernate Commons Annotations {5.0.3.Final}
+01 Mar 2023 17:20:02  WARN HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+01 Mar 2023 17:20:02  INFO HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/p22]
+01 Mar 2023 17:20:02  INFO HHH10001001: Connection properties: {user=root, password=}
+01 Mar 2023 17:20:02  INFO HHH10001003: Autocommit mode: false
+01 Mar 2023 17:20:02  INFO HHH000115: Hibernate connection pool size: 20 (min=1)
+01 Mar 2023 17:20:02  WARN HHH000342: Could not obtain connection to query metadata : null
+01 Mar 2023 17:20:02  INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+01 Mar 2023 17:20:02  INFO HHH000422: Disabling contextual LOB creation as connection was null
+01 Mar 2023 17:20:02  WARN SQL Error: 1049, SQLState: 42000
+01 Mar 2023 17:20:02 ERROR Unknown database 'p22'
+01 Mar 2023 17:22:00  INFO HHH000412: Hibernate Core {5.3.1.Final}
+01 Mar 2023 17:22:00  INFO HHH000206: hibernate.properties not found
+01 Mar 2023 17:22:00  WARN HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+01 Mar 2023 17:22:00  INFO HCANN000001: Hibernate Commons Annotations {5.0.3.Final}
+01 Mar 2023 17:22:01  WARN HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+01 Mar 2023 17:22:01  INFO HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/p22]
+01 Mar 2023 17:22:01  INFO HHH10001001: Connection properties: {user=root, password=}
+01 Mar 2023 17:22:01  INFO HHH10001003: Autocommit mode: false
+01 Mar 2023 17:22:01  INFO HHH000115: Hibernate connection pool size: 20 (min=1)
+01 Mar 2023 17:22:01  INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+01 Mar 2023 17:22:02  INFO HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@5298dead] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+01 Mar 2023 17:22:02  WARN GenerationTarget encountered exception accepting command : Error executing DDL "create table users (id integer not null auto_increment, mail varchar(255) not null, role bit not null, lang varchar(50) not null, name varchar(50) not null, pass varchar(255) not null, phone varchar(50) not null, province varchar(10) not null, surnames varchar(255) not null, town varchar(10) not null, primary key (id)) type=MyISAM" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create table users (id integer not null auto_increment, mail varchar(255) not null, role bit not null, lang varchar(50) not null, name varchar(50) not null, pass varchar(255) not null, phone varchar(50) not null, province varchar(10) not null, surnames varchar(255) not null, town varchar(10) not null, primary key (id)) type=MyISAM" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlString(AbstractSchemaMigrator.java:559)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.applySqlStrings(AbstractSchemaMigrator.java:504)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.createTable(AbstractSchemaMigrator.java:277)
+	at org.hibernate.tool.schema.internal.GroupedSchemaMigratorImpl.performTablesMigration(GroupedSchemaMigratorImpl.java:71)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.performMigration(AbstractSchemaMigrator.java:207)
+	at org.hibernate.tool.schema.internal.AbstractSchemaMigrator.doMigration(AbstractSchemaMigrator.java:114)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:183)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:310)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:467)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:708)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:724)
+	at dam2.add.p22.HibernateManager.configureSessionFactory(HibernateManager.java:14)
+	at dam2.add.p22.HibernateManager.getSessionFactory(HibernateManager.java:20)
+	at dam2.add.p22.dao.UserDAOHibernate.<init>(UserDAOHibernate.java:17)
+	at dam2.add.p22.dao.UserDAOHibernate.getInstance(UserDAOHibernate.java:22)
+	at dam2.add.p22.Main.main(Main.java:9)
+Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'type=MyISAM' at line 1
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 17 more
+01 Mar 2023 17:22:02  WARN SQL Error: 1146, SQLState: 42S02
+01 Mar 2023 17:22:02 ERROR Table 'p22.users' doesn't exist
+01 Mar 2023 17:24:43  INFO HHH000412: Hibernate Core {5.3.1.Final}
+01 Mar 2023 17:24:43  INFO HHH000206: hibernate.properties not found
+01 Mar 2023 17:24:43  WARN HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+01 Mar 2023 17:24:43  INFO HCANN000001: Hibernate Commons Annotations {5.0.3.Final}
+01 Mar 2023 17:24:44  WARN HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+01 Mar 2023 17:24:44  INFO HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/p22]
+01 Mar 2023 17:24:44  INFO HHH10001001: Connection properties: {user=root, password=}
+01 Mar 2023 17:24:44  INFO HHH10001003: Autocommit mode: false
+01 Mar 2023 17:24:44  INFO HHH000115: Hibernate connection pool size: 20 (min=1)
+01 Mar 2023 17:24:44  INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+01 Mar 2023 17:24:45  INFO HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@22175d4f] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+01 Mar 2023 17:24:45  INFO HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4e406694] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+01 Mar 2023 17:24:45  WARN GenerationTarget encountered exception accepting command : Error executing DDL "create table users (id integer not null auto_increment, mail varchar(255) not null, role bit not null, lang varchar(50) not null, name varchar(50) not null, pass varchar(255) not null, phone varchar(50) not null, province varchar(10) not null, surnames varchar(255) not null, town varchar(10) not null, primary key (id)) type=MyISAM" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create table users (id integer not null auto_increment, mail varchar(255) not null, role bit not null, lang varchar(50) not null, name varchar(50) not null, pass varchar(255) not null, phone varchar(50) not null, province varchar(10) not null, surnames varchar(255) not null, town varchar(10) not null, primary key (id)) type=MyISAM" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlString(SchemaCreatorImpl.java:440)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlStrings(SchemaCreatorImpl.java:424)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createFromMetadata(SchemaCreatorImpl.java:315)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:166)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:135)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:121)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:155)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:310)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:467)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:708)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:724)
+	at dam2.add.p22.HibernateManager.configureSessionFactory(HibernateManager.java:14)
+	at dam2.add.p22.HibernateManager.getSessionFactory(HibernateManager.java:20)
+	at dam2.add.p22.dao.UserDAOHibernate.<init>(UserDAOHibernate.java:17)
+	at dam2.add.p22.dao.UserDAOHibernate.getInstance(UserDAOHibernate.java:22)
+	at dam2.add.p22.Main.main(Main.java:9)
+Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'type=MyISAM' at line 1
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 17 more
+01 Mar 2023 17:24:45  WARN GenerationTarget encountered exception accepting command : Error executing DDL "alter table users add constraint UK_jhck7kjdogc7yia7qamc89ypv unique (mail)" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table users add constraint UK_jhck7kjdogc7yia7qamc89ypv unique (mail)" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlString(SchemaCreatorImpl.java:440)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlStrings(SchemaCreatorImpl.java:424)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createFromMetadata(SchemaCreatorImpl.java:349)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:166)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:135)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:121)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:155)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:310)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:467)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:708)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:724)
+	at dam2.add.p22.HibernateManager.configureSessionFactory(HibernateManager.java:14)
+	at dam2.add.p22.HibernateManager.getSessionFactory(HibernateManager.java:20)
+	at dam2.add.p22.dao.UserDAOHibernate.<init>(UserDAOHibernate.java:17)
+	at dam2.add.p22.dao.UserDAOHibernate.getInstance(UserDAOHibernate.java:22)
+	at dam2.add.p22.Main.main(Main.java:9)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'p22.users' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 17 more
+01 Mar 2023 17:24:45  INFO HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@1b1637e1'
+01 Mar 2023 17:24:45  WARN SQL Error: 1146, SQLState: 42S02
+01 Mar 2023 17:24:45 ERROR Table 'p22.users' doesn't exist
+01 Mar 2023 17:25:10  INFO HHH000412: Hibernate Core {5.3.1.Final}
+01 Mar 2023 17:25:10  INFO HHH000206: hibernate.properties not found
+01 Mar 2023 17:25:11  WARN HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+01 Mar 2023 17:25:11  INFO HCANN000001: Hibernate Commons Annotations {5.0.3.Final}
+01 Mar 2023 17:25:11  WARN HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+01 Mar 2023 17:25:11  INFO HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/p22]
+01 Mar 2023 17:25:11  INFO HHH10001001: Connection properties: {user=root, password=}
+01 Mar 2023 17:25:11  INFO HHH10001003: Autocommit mode: false
+01 Mar 2023 17:25:11  INFO HHH000115: Hibernate connection pool size: 20 (min=1)
+01 Mar 2023 17:25:12  INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+01 Mar 2023 17:25:13  INFO HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@22175d4f] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+01 Mar 2023 17:25:13  INFO HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4e406694] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+01 Mar 2023 17:25:13  WARN GenerationTarget encountered exception accepting command : Error executing DDL "create table users (id integer not null auto_increment, mail varchar(255) not null, role bit not null, lang varchar(50) not null, name varchar(50) not null, pass varchar(255) not null, phone varchar(50) not null, province varchar(10) not null, surnames varchar(255) not null, town varchar(10) not null, primary key (id)) type=MyISAM" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create table users (id integer not null auto_increment, mail varchar(255) not null, role bit not null, lang varchar(50) not null, name varchar(50) not null, pass varchar(255) not null, phone varchar(50) not null, province varchar(10) not null, surnames varchar(255) not null, town varchar(10) not null, primary key (id)) type=MyISAM" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlString(SchemaCreatorImpl.java:440)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlStrings(SchemaCreatorImpl.java:424)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createFromMetadata(SchemaCreatorImpl.java:315)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:166)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:135)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:121)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:155)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:310)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:467)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:708)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:724)
+	at dam2.add.p22.HibernateManager.configureSessionFactory(HibernateManager.java:14)
+	at dam2.add.p22.HibernateManager.getSessionFactory(HibernateManager.java:20)
+	at dam2.add.p22.dao.UserDAOHibernate.<init>(UserDAOHibernate.java:17)
+	at dam2.add.p22.dao.UserDAOHibernate.getInstance(UserDAOHibernate.java:22)
+	at dam2.add.p22.Main.main(Main.java:9)
+Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'type=MyISAM' at line 1
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 17 more
+01 Mar 2023 17:25:13  WARN GenerationTarget encountered exception accepting command : Error executing DDL "alter table users add constraint UK_jhck7kjdogc7yia7qamc89ypv unique (mail)" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table users add constraint UK_jhck7kjdogc7yia7qamc89ypv unique (mail)" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlString(SchemaCreatorImpl.java:440)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlStrings(SchemaCreatorImpl.java:424)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createFromMetadata(SchemaCreatorImpl.java:349)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:166)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:135)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:121)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:155)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:310)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:467)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:708)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:724)
+	at dam2.add.p22.HibernateManager.configureSessionFactory(HibernateManager.java:14)
+	at dam2.add.p22.HibernateManager.getSessionFactory(HibernateManager.java:20)
+	at dam2.add.p22.dao.UserDAOHibernate.<init>(UserDAOHibernate.java:17)
+	at dam2.add.p22.dao.UserDAOHibernate.getInstance(UserDAOHibernate.java:22)
+	at dam2.add.p22.Main.main(Main.java:9)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'p22.users' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 17 more
+01 Mar 2023 17:25:13  INFO HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@1b1637e1'
+01 Mar 2023 17:25:13  WARN SQL Error: 1146, SQLState: 42S02
+01 Mar 2023 17:25:13 ERROR Table 'p22.users' doesn't exist
+01 Mar 2023 17:25:51  INFO HHH000412: Hibernate Core {5.3.1.Final}
+01 Mar 2023 17:25:51  INFO HHH000206: hibernate.properties not found
+01 Mar 2023 17:25:51  WARN HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+01 Mar 2023 17:25:51  INFO HCANN000001: Hibernate Commons Annotations {5.0.3.Final}
+01 Mar 2023 17:25:52  WARN HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+01 Mar 2023 17:25:52  INFO HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/p22]
+01 Mar 2023 17:25:52  INFO HHH10001001: Connection properties: {user=root, password=}
+01 Mar 2023 17:25:52  INFO HHH10001003: Autocommit mode: false
+01 Mar 2023 17:25:52  INFO HHH000115: Hibernate connection pool size: 20 (min=1)
+01 Mar 2023 17:25:52  INFO HHH000400: Using dialect: org.hibernate.dialect.MySQLDialect
+01 Mar 2023 17:25:53  INFO HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@22175d4f] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+01 Mar 2023 17:25:53  INFO HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@4e406694] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+01 Mar 2023 17:25:53  WARN GenerationTarget encountered exception accepting command : Error executing DDL "create table users (id integer not null auto_increment, mail varchar(255) not null, role bit not null, lang varchar(50) not null, name varchar(50) not null, pass varchar(255) not null, phone varchar(50) not null, province varchar(10) not null, surnames varchar(255) not null, town varchar(10) not null, primary key (id)) type=MyISAM" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "create table users (id integer not null auto_increment, mail varchar(255) not null, role bit not null, lang varchar(50) not null, name varchar(50) not null, pass varchar(255) not null, phone varchar(50) not null, province varchar(10) not null, surnames varchar(255) not null, town varchar(10) not null, primary key (id)) type=MyISAM" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlString(SchemaCreatorImpl.java:440)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlStrings(SchemaCreatorImpl.java:424)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createFromMetadata(SchemaCreatorImpl.java:315)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:166)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:135)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:121)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:155)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:310)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:467)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:708)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:724)
+	at dam2.add.p22.HibernateManager.configureSessionFactory(HibernateManager.java:14)
+	at dam2.add.p22.HibernateManager.getSessionFactory(HibernateManager.java:20)
+	at dam2.add.p22.dao.UserDAOHibernate.<init>(UserDAOHibernate.java:17)
+	at dam2.add.p22.dao.UserDAOHibernate.getInstance(UserDAOHibernate.java:22)
+	at dam2.add.p22.Main.main(Main.java:9)
+Caused by: java.sql.SQLSyntaxErrorException: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'type=MyISAM' at line 1
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 17 more
+01 Mar 2023 17:25:53  WARN GenerationTarget encountered exception accepting command : Error executing DDL "alter table users add constraint UK_jhck7kjdogc7yia7qamc89ypv unique (mail)" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table users add constraint UK_jhck7kjdogc7yia7qamc89ypv unique (mail)" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlString(SchemaCreatorImpl.java:440)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.applySqlStrings(SchemaCreatorImpl.java:424)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.createFromMetadata(SchemaCreatorImpl.java:349)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.performCreation(SchemaCreatorImpl.java:166)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:135)
+	at org.hibernate.tool.schema.internal.SchemaCreatorImpl.doCreation(SchemaCreatorImpl.java:121)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:155)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:72)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:310)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:467)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:708)
+	at org.hibernate.cfg.Configuration.buildSessionFactory(Configuration.java:724)
+	at dam2.add.p22.HibernateManager.configureSessionFactory(HibernateManager.java:14)
+	at dam2.add.p22.HibernateManager.getSessionFactory(HibernateManager.java:20)
+	at dam2.add.p22.dao.UserDAOHibernate.<init>(UserDAOHibernate.java:17)
+	at dam2.add.p22.dao.UserDAOHibernate.getInstance(UserDAOHibernate.java:22)
+	at dam2.add.p22.Main.main(Main.java:9)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'p22.users' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:763)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 17 more
+01 Mar 2023 17:25:53  INFO HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@1b1637e1'
+01 Mar 2023 17:25:53  WARN SQL Error: 1146, SQLState: 42S02
+01 Mar 2023 17:25:53 ERROR Table 'p22.users' doesn't exist
+01 Mar 2023 17:30:27  INFO HHH000412: Hibernate Core {5.3.1.Final}
+01 Mar 2023 17:30:27  INFO HHH000206: hibernate.properties not found
+01 Mar 2023 17:30:27  WARN HHH90000012: Recognized obsolete hibernate namespace http://hibernate.sourceforge.net/hibernate-configuration. Use namespace http://www.hibernate.org/dtd/hibernate-configuration instead.  Support for obsolete DTD/XSD namespaces may be removed at any time.
+01 Mar 2023 17:30:27  INFO HCANN000001: Hibernate Commons Annotations {5.0.3.Final}
+01 Mar 2023 17:30:28  WARN HHH10001002: Using Hibernate built-in connection pool (not for production use!)
+01 Mar 2023 17:30:28  INFO HHH10001005: using driver [com.mysql.cj.jdbc.Driver] at URL [jdbc:mysql://localhost:3306/p22]
+01 Mar 2023 17:30:28  INFO HHH10001001: Connection properties: {user=root, password=}
+01 Mar 2023 17:30:28  INFO HHH10001003: Autocommit mode: false
+01 Mar 2023 17:30:28  INFO HHH000115: Hibernate connection pool size: 20 (min=1)
+01 Mar 2023 17:30:28  INFO HHH000400: Using dialect: org.hibernate.dialect.MySQL5InnoDBDialect
+01 Mar 2023 17:30:29  INFO HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@236ab296] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+01 Mar 2023 17:30:29  INFO HHH10001501: Connection obtained from JdbcConnectionAccess [org.hibernate.engine.jdbc.env.internal.JdbcEnvironmentInitiator$ConnectionProviderJdbcConnectionAccess@2b50150] for (non-JTA) DDL execution was not in auto-commit mode; the Connection 'local transaction' will be committed and the Connection will be set into auto-commit mode.
+01 Mar 2023 17:30:29  INFO HHH000476: Executing import script 'org.hibernate.tool.schema.internal.exec.ScriptSourceInputNonExistentImpl@41c62850'

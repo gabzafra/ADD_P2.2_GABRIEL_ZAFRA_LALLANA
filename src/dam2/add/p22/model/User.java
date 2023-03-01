@@ -35,17 +35,23 @@ public class User {
   @Column(name = "role", nullable = false)
   private boolean isAdmin;
 
+  @Column(name = "province", length = 10, nullable = false)
+  private String province;
+
+  @Column(name = "town", length = 10, nullable = false)
+  private String town;
+
   public User() {
-    this("", "", "", "", "", false, "ES");
+    this("", "", "", "", "", false, "ES", "", "");
   }
 
   public User(String name, String surnames, String email, String phone, String password,
-      boolean isAdmin, String lang) {
-    this(-1, name, surnames, email, phone, password, isAdmin, lang);
+      boolean isAdmin, String lang, String province, String town) {
+    this(-1, name, surnames, email, phone, password, isAdmin, lang, province, town);
   }
 
   public User(int id, String name, String surnames, String email, String phone, String password,
-      boolean isAdmin, String lang) {
+      boolean isAdmin, String lang, String province, String town) {
     this.id = id;
     this.name = name;
     this.surnames = surnames;
@@ -54,6 +60,8 @@ public class User {
     this.password = password;
     this.isAdmin = isAdmin;
     this.lang = lang;
+    this.province = province;
+    this.town = town;
   }
 
   public int getId() {
@@ -120,11 +128,29 @@ public class User {
     this.lang = lang;
   }
 
+  public String getProvince() {
+    return province;
+  }
+
+  public void setProvince(String province) {
+    this.province = province;
+  }
+
+  public String getTown() {
+    return town;
+  }
+
+  public void setTown(String town) {
+    this.town = town;
+  }
+
   @Override
   public String toString() {
     return "User [id=" + id + ", name=" + name + ", surnames=" + surnames + ", email=" + email
         + ", phone=" + phone + ", password=" + password + ", lang=" + lang + ", isAdmin=" + isAdmin
-        + "]";
+        + ", province=" + province + ", town=" + town + "]";
   }
+
+
 
 }

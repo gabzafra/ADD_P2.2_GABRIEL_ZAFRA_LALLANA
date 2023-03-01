@@ -9,7 +9,7 @@ import dam2.add.p22.dao.UserDAOinMem;
 public class PersistenceService {
   public static UserDAO getUserDAO() {
     String mode = ConfigService.getInstance().getParametro("app.persistence");
-    if (mode.equals("jdbc")) {
+    if (mode.equals("db")) {
       return UserDAOJDBC.getInstance();
     } else if (mode.equals("mem")) {
       return UserDAOinMem.getInstance();
