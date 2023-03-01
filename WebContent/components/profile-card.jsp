@@ -1,3 +1,5 @@
+<%@page import="dam2.add.p22.service.GeoService"%>
+<%@page import="dam2.add.p22.model.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
     <%@page import="java.util.ResourceBundle"%>
@@ -10,6 +12,9 @@
           locale = new Locale((String)session.getAttribute("idioma"));
         }
         ResourceBundle rb = ResourceBundle.getBundle("idioma", locale);
+        User user = (User) request.getAttribute("detail");
+        String provincia = GeoService.getInstance().getLugarById(user.getProvince()).getNm();
+        String municipio = GeoService.getInstance().getLugarById(user.getTown()).getNm();
         %>
     <div class="contact container mx-auto m-3">
         <a href="./profile?upd=${requestScope.detail.id}" class="btn btn-primary"><%=rb.getString("update_btn")%></a>
@@ -18,8 +23,8 @@
             <h1>${requestScope.detail.name} ${requestScope.detail.surnames}</h1>
             <p><span><%=rb.getString("email")%>: </span><a href="mailto:${requestScope.detail.email}">${requestScope.detail.email}</a></p>
             <p><span><%=rb.getString("phone")%>: </span>${requestScope.detail.phone}</p>
-            <p><span><%=rb.getString("province")%>: </span>${requestScope.detail.province}</p>
-            <p><span><%=rb.getString("municipality")%>: </span>${requestScope.detail.town}</p>
+            <p><span><%=rb.getString("province")%>: </span><%=provincia%></p>
+            <p><span><%=rb.getString("municipality")%>: </span><%=municipio%></p>
         </article>
         <c:if test="${!empty requestScope.error}">
             <jsp:include page="/components/error.jsp">

@@ -55,6 +55,20 @@ public class GeoService {
         .sorted((m1, m2) -> m1.getNm().compareTo(m2.getNm())).toArray(GeoItem[]::new);
   }
 
+  public GeoItem getLugarById(String id) {
+    GeoItem result = new GeoItem();
+    if (id != null) {
+      if (id.length() == 2) {
+        result = Arrays.stream(getProvincias()).filter(provincia -> provincia.getId().equals(id))
+            .findFirst().orElse(new GeoItem());
+      } else if (id.length() == 5) {
+        result = Arrays.stream(getMunicipios(new GeoItem(id, "")))
+            .filter(municipio -> municipio.getId().equals(id)).findFirst().orElse(new GeoItem());
+      }
+    }
+    return result;
+  }
+
   private static String leerUrl(String sUrl) throws Exception {
     String output = "";
     try {

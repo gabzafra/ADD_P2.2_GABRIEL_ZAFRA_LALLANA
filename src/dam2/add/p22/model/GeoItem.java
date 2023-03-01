@@ -4,6 +4,11 @@ public class GeoItem {
   private String id;
   private String nm;
 
+  public GeoItem() {
+    id = "";
+    nm = "";
+  }
+
   public GeoItem(String id, String name) {
     this.id = id;
     this.nm = name;
